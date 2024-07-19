@@ -6,10 +6,10 @@ import io
 from pathlib import Path
 
 def get_map_image_from_name(map_name):
-    dir = "main/image/"
+    dir = "eft-map-pointer-by-st/image/"
     images_path = Path(dir)
     image_path = images_path.glob(map_name + ".*")
-    print(images_path)
+    print(dir + images_path)
     try:
         return Image.open(next(image_path))
     except StopIteration:
