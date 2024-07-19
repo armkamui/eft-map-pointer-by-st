@@ -7,16 +7,16 @@ from pathlib import Path
 
 def get_map_image_from_name(map_name):
     image_path_dict = {
-        "FACTORY": "eft-map-pointer-by-st/image/FACTORY.jpg",
-        "WOODS": "eft-map-pointer-by-st/image/WOODS.jpg",
-        "CUSTOMS": "eft-map-pointer-by-st/image/CUSTOMS.jpg",
-        "SHORELINE": "eft-map-pointer-by-st/image/SHORELINE.jpg",
-        "INTERCHANGE": "eft-map-pointer-by-st/image/INTERCHANGE.jpg",
-        "THE LAB": "eft-map-pointer-by-st/image/THE LAB.jpg",
-        "RESERVE": "eft-map-pointer-by-st/image/RESERVE.jpg",
-        "LIGHTHOUSE": "eft-map-pointer-by-st/image/LIGHTHOUSE.jpg",
-        "STREETS OF TARKOV": "eft-map-pointer-by-st/image/STREETS OF TARKOV.jpg",
-        "GROUND ZERO": "eft-map-pointer-by-st/image/GROUND ZERO.jpg"
+        "FACTORY": "image/FACTORY.webp",
+        "WOODS": "image/WOODS.webp",
+        "CUSTOMS": "image/CUSTOMS.jpg",
+        "SHORELINE": "image/SHORELINE.webp",
+        "INTERCHANGE": "image/INTERCHANGE.webp",
+        "THE LAB": "image/THE LAB.webp",
+        "RESERVE": "image/RESERVE.webp",
+        "LIGHTHOUSE": "image/LIGHTHOUSE.webp",
+        "STREETS OF TARKOV": "image/STREETS OF TARKOV.webp",
+        "GROUND ZERO": "image/GROUND ZERO.webp"
     }
     # images_path = Path(dir)
     # image_path = images_path.glob(map_name + ".*")
