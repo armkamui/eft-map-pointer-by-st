@@ -7,8 +7,8 @@ import os, sys
 
 
 def get_map_image_from_name(map_name):
-    dir = os.getcwd().replace(os.sep,'/')
-    images_path = Path(f'{dir}/image/')
+    dir = os.getcwd()
+    images_path = Path(dir + r'\image')
     image_path = images_path.glob(map_name + ".*")
     print(images_path)
     try:
