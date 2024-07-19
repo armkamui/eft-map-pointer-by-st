@@ -6,12 +6,22 @@ import io
 from pathlib import Path
 
 def get_map_image_from_name(map_name):
-    dir = "eft-map-pointer-by-st/image/"
-    images_path = Path(dir)
-    image_path = images_path.glob(map_name + ".*")
-    print(dir + images_path)
+    image_path_dict = {
+        "FACTORY": "eft-map-pointer-by-st/image/FACTORY.jpg",
+        "WOODS": "eft-map-pointer-by-st/image/WOODS.jpg",
+        "CUSTOMS": "eft-map-pointer-by-st/image/CUSTOMS.jpg",
+        "SHORELINE": "eft-map-pointer-by-st/image/SHORELINE.jpg",
+        "INTERCHANGE": "eft-map-pointer-by-st/image/INTERCHANGE.jpg",
+        "THE LAB": "eft-map-pointer-by-st/image/THE LAB.jpg",
+        "RESERVE": "eft-map-pointer-by-st/image/RESERVE.jpg",
+        "LIGHTHOUSE": "eft-map-pointer-by-st/image/LIGHTHOUSE.jpg",
+        "STREETS OF TARKOV": "eft-map-pointer-by-st/image/STREETS OF TARKOV.jpg",
+        "GROUND ZERO": "eft-map-pointer-by-st/image/GROUND ZERO.jpg"
+    }
+    # images_path = Path(dir)
+    # image_path = images_path.glob(map_name + ".*")
     try:
-        return Image.open(next(image_path))
+        return Image.open(image_path_dict[map_name])
     except StopIteration:
         st.error(f"{map_name} に対応する画像が見つかりません。")
         return None
