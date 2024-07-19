@@ -3,12 +3,19 @@ import streamlit as st
 from streamlit_drawable_canvas import st_canvas
 from pathlib import Path
 import pandas as pd
+import os, sys
 
 
 def get_map_image_from_name(map_name):
-    images_path = Path(r'.\image\\')
+    dir = os.getcwd().replace(os.sep,'/')
+    images_path = Path(f'{dir}/image/')
     image_path = images_path.glob(map_name + ".*")
-    return Image.open(next(image_path))
+    print(images_path)
+    try:
+        return Image.open(next(image_path))
+    except StopIteration:
+        st.error(f"{map_name} に対応する画像が見つかりません。")
+        return None
 
 st.set_page_config(
     page_title="EFT Map Pointer",
