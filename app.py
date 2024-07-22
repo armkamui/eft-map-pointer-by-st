@@ -49,6 +49,9 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
+if "memo" not in st.session_state:
+    st.session_state.memo = ""
+
 st.title("🗺️ EFT Map Pointer")
 
 maps = (
@@ -96,26 +99,33 @@ with st.spinner("マップを読み込んでいます..."):
             key="canvas",
     )
 
-st.header("必要アイテム登録", divider="orange")
-col1, col2 = st.columns([1, 1])
-with col1.container():
-    df = pd.DataFrame(columns=['名前','個数','目的'])
+col1, col2 = st.columns([2, 1])
+with col1:
+    st.header("必要アイテム登録", divider="orange")
+    df = pd.DataFrame(columns=['名前','個数','目的','色', 'チェック'])
     purpose = ['task', 'market', 'hideout', 'other']
+    number = [str(i) for i in range(1, 101)]
+    colors = ['赤', '青', '緑', '黄', '紫', 'オレンジ', 'ピンク', '黒', '白', '茶', 'なし']
     config = {
         '名前' : st.column_config.TextColumn('アイテム名', width='large', required=True),
-        '個数' : st.column_config.NumberColumn('個', min_value=0, max_value=122),
-        '目的' : st.column_config.SelectboxColumn('用途', options=purpose)
+        '個数' : st.column_config.SelectboxColumn('個数', options=number, default="1"),
+        '目的' : st.column_config.SelectboxColumn('用途', options=purpose, default='task'),
+        '色' : st.column_config.SelectboxColumn('色', options=colors, default='なし'),
+        'チェック' : st.column_config.CheckboxColumn('チェック', default=False)
     }
 
-    result = st.data_editor(df, column_config = config, num_rows='dynamic')
+    search_item = st.data_editor(df, column_config = config, num_rows='dynamic')
 
-    if st.button('登録'):
-        with st.spinner("登録中..."):
-            st.header("アイテム一覧", divider="blue")
-            st.write(result)
+    # if st.button('登録') and st.session_state.flag == False:
+    #     with st.spinner("登録中..."):
+    #         st.header("アイテム一覧", divider="blue")
+    #         st.write(st.session_state.search_item)
 
-with col2.container():
+with col2:
     st.header("メモ", divider="green")
-    search_item = st.text_input("内容")
-    if st.button('決定'):
-        st.write(search_item)
+    df = pd.DataFrame(
+        [
+        {"メモ": "memo", "備考": "xxx", "チェック": True},
+    ]
+    )
+    edited_df = st.data_editor(df, num_rows="dynamic")
