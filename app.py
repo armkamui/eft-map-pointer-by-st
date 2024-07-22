@@ -89,7 +89,7 @@ canvas_result = st_canvas(
         background_image=img if selected_map else None,
         update_streamlit=realtime_update,
         drawing_mode=drawing_mode,
-        point_display_radius=point_display_radius if drawing_mode == 'point' else 0,
+        # point_display_radius=point_display_radius if drawing_mode == 'point' else 0,
         key="canvas",
 )
 
