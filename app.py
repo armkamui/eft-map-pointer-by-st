@@ -77,7 +77,7 @@ stroke_width = st.sidebar.slider("マーカーの大きさ", 1, 25, 3)
 #     point_display_radius = st.sidebar.slider("点の大きさ", 1, 25, 3)
 stroke_color = st.sidebar.color_picker("マーカーの色", "#FF0000")
 
-realtime_update = st.sidebar.checkbox("リアルタイム更新", True)
+realtime_update = st.sidebar.checkbox("リアルタイム更新", False)
 
 img = get_map_image_from_name(selected_map)
 
