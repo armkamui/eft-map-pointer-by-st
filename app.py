@@ -82,18 +82,19 @@ realtime_update = st.sidebar.checkbox("リアルタイム更新", False)
 img = get_map_image_from_name(selected_map)
 
 st.header("マップ", divider="blue")
-canvas_result = st_canvas(
-        fill_color="rgba(255, 165, 0, 0.3)",  # Fixed fill color with some opacity
-        stroke_width=stroke_width,
-        stroke_color=stroke_color,
-        width=1200,
-        height=800,
-        background_image=img if selected_map else None,
-        update_streamlit=realtime_update,
-        drawing_mode=drawing_mode,
-        # point_display_radius=point_display_radius if drawing_mode == 'point' else 0,
-        key="canvas",
-)
+with st.spinner("マップを読み込んでいます..."):
+    canvas_result = st_canvas(
+            fill_color="rgba(255, 165, 0, 0.3)",  # Fixed fill color with some opacity
+            stroke_width=stroke_width,
+            stroke_color=stroke_color,
+            width=1200,
+            height=800,
+            background_image=img if selected_map else None,
+            update_streamlit=realtime_update,
+            drawing_mode=drawing_mode,
+            # point_display_radius=point_display_radius if drawing_mode == 'point' else 0,
+            key="canvas",
+    )
 
 st.header("必要アイテム登録", divider="blue")
 df = pd.DataFrame(columns=['名前','個数','目的'])
@@ -107,5 +108,6 @@ config = {
 result = st.data_editor(df, column_config = config, num_rows='dynamic')
 
 if st.button('登録'):
-    st.header("アイテム一覧", divider="blue")
-    st.write(result)
+    with st.spinner("登録中..."):
+        st.header("アイテム一覧", divider="blue")
+        st.write(result)
