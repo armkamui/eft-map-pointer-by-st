@@ -96,18 +96,26 @@ with st.spinner("マップを読み込んでいます..."):
             key="canvas",
     )
 
-st.header("必要アイテム登録", divider="blue")
-df = pd.DataFrame(columns=['名前','個数','目的'])
-purpose = ['task', 'market', 'hideout', 'other']
-config = {
-    '名前' : st.column_config.TextColumn('アイテム名', width='large', required=True),
-    '個数' : st.column_config.NumberColumn('個', min_value=0, max_value=122),
-    '目的' : st.column_config.SelectboxColumn('用途', options=purpose)
-}
+st.header("必要アイテム登録", divider="orange")
+col1, col2 = st.columns([1, 1])
+with col1.container:
+    df = pd.DataFrame(columns=['名前','個数','目的'])
+    purpose = ['task', 'market', 'hideout', 'other']
+    config = {
+        '名前' : st.column_config.TextColumn('アイテム名', width='large', required=True),
+        '個数' : st.column_config.NumberColumn('個', min_value=0, max_value=122),
+        '目的' : st.column_config.SelectboxColumn('用途', options=purpose)
+    }
 
-result = st.data_editor(df, column_config = config, num_rows='dynamic')
+    result = st.data_editor(df, column_config = config, num_rows='dynamic')
 
-if st.button('登録'):
-    with st.spinner("登録中..."):
-        st.header("アイテム一覧", divider="blue")
-        st.write(result)
+    if st.button('登録'):
+        with st.spinner("登録中..."):
+            st.header("アイテム一覧", divider="blue")
+            st.write(result)
+
+with col2.container:
+    st.header("メモ", divider="green")
+    search_item = st.text_input("内容")
+    if st.button('決定'):
+        st.write(search_item)
