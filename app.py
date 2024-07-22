@@ -135,11 +135,12 @@ col3, col4 = st.columns([1, 1])
 with col3:
     st.markdown(
         """
-        - [Wiki Home](https://escapefromtarkov.fandom.com/wiki/Escape_from_Tarkov_Wiki)
-        - [Maps](https://mapgenie.io/tarkov/maps/woods)
-        - [Item Database](https://tarkov.dev/items)
-        - [Goon Tracker](https://www.goon-tracker.com/pvetracker)
-        - [Tarkov Help](https://tarkov.help/en/)
+        - English
+            - [Wiki Home](https://escapefromtarkov.fandom.com/wiki/Escape_from_Tarkov_Wiki)
+            - [Maps](https://mapgenie.io/tarkov/maps/woods)
+            - [Item Database](https://tarkov.dev/items)
+            - [Goon Tracker](https://www.goon-tracker.com/pvetracker)
+            - [Tarkov Help](https://tarkov.help/en/)
         """
     )
 
@@ -148,7 +149,7 @@ with col4:
         """
         - 日本語
             - [納品アイテムまとめ](https://gamelabs.jp/games/tarkov/202402013859/#index_id1)
-            - [Wikiホーム](https://wikiwiki.jp/eft/)
+            - [Wiki ホーム](https://wikiwiki.jp/eft/)
             - [Wiki PvE情報](https://wikiwiki.jp/eft/PvE%20ZONE)
             - [Praporのタスク](https://wikiwiki.jp/eft/Prapor)
             - [Therapistのタスク](https://wikiwiki.jp/eft/Therapist)
