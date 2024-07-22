@@ -71,8 +71,8 @@ drawing_mode = st.sidebar.selectbox(
 )
 
 stroke_width = st.sidebar.slider("マーカーの大きさ", 1, 25, 3)
-if drawing_mode == 'point':
-    point_display_radius = st.sidebar.slider("点の大きさ", 1, 25, 3)
+# if drawing_mode == 'point':
+#     point_display_radius = st.sidebar.slider("点の大きさ", 1, 25, 3)
 stroke_color = st.sidebar.color_picker("マーカーの色", "#FF0000")
 
 realtime_update = st.sidebar.checkbox("リアルタイム更新", True)
