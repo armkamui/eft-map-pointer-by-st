@@ -1,9 +1,10 @@
-from tabs import map_drawer
+from tabs import map_drawer, map_pointer
 import streamlit as st
 import time, os, asyncio
 import shutil  # Import shutil for directory removal
 
 map_drawer = map_drawer.MapDrawer()
+map_pointer = map_pointer.MapPointer()
 
 async def remove_tempfiles():
     try:
@@ -27,8 +28,7 @@ async def main():
         if btn_clear:
             await remove_tempfiles()
     with tab2:
-        st.write("Map Pointer")
-        st.write("Coming soon...")
+        map_pointer.main()
     
 
 if __name__ == "__main__":
